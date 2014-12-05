@@ -12,7 +12,7 @@ int main(int argc, char **argv)
 
 	RobotOperator robOp;
 	
-	Rate loopRate(10);
+	Rate loopRate(50);
 	while(ok())
 	{
 		robOp.executeCommand();

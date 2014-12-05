@@ -198,7 +198,7 @@ bool RobotNavigator::preparePlan()
 
 bool RobotNavigator::createPlan()
 {	
-	ROS_DEBUG("Map-Value of goal point is %d, lethal threshold is %d.", mCurrentMap.getData(mGoalPoint), mCostLethal);
+	ROS_INFO("Map-Value of goal point is %d, lethal threshold is %d.", mCurrentMap.getData(mGoalPoint), mCostLethal);
 	
 	unsigned int goal_x = 0, goal_y = 0;
 	if(mCurrentMap.getCoordinates(goal_x,goal_y,mGoalPoint))
@@ -644,7 +644,7 @@ void RobotNavigator::receiveMoveGoal(const nav2d_navigator::MoveToPosition2DGoal
 		return;
 	}
 	
-	ROS_DEBUG("Received Goal: %.2f, %.2f (in frame '%s')", goal->target_pose.x, goal->target_pose.y, goal->header.frame_id.c_str());
+	ROS_INFO("Received Goal: %.2f, %.2f (in frame '%s')", goal->target_pose.x, goal->target_pose.y, goal->header.frame_id.c_str());
 
 	// Start navigating according to the generated plan
 	Rate loopRate(FREQUENCY);
@@ -884,7 +884,7 @@ void RobotNavigator::receiveExploreGoal(const nav2d_navigator::ExploreGoal::Cons
 				{
 					WallTime endTime = WallTime::now();
 					WallDuration d = endTime - startTime;
-					ROS_DEBUG("Exploration planning took %.09f seconds, distance is %.2f m.", d.toSec(), mCurrentPlan[mStartPoint]);
+					ROS_INFO("Exploration planning took %.09f seconds, distance is %.2f m.", d.toSec(), mCurrentPlan[mStartPoint]);
 				}else
 				{
 					mExploreActionServer->setAborted();
