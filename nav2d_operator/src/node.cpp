@@ -11,7 +11,7 @@ int main(int argc, char **argv)
 	NodeHandle n;
 
 	RobotOperator robOp;
-	
+
 	Rate loopRate(10);
 	while(ok())
 	{
@@ -19,5 +19,5 @@ int main(int argc, char **argv)
 		spinOnce();
 		loopRate.sleep();
 	}
-	return 0;	
+	return 0;
 }
